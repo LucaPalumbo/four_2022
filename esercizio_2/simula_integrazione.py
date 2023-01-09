@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-frequency_quadra = 165.29
+frequency_quadra = 28.29
 period = 1/frequency_quadra
-amplitude = 1024
-terms = 10
-frequency_taglio = 23  # unknown
+amplitude = 1
+terms = 1000
+frequency_taglio = 23  
 
 
 t=np.linspace(0, period*4, 1000,endpoint=False) 
@@ -22,11 +22,12 @@ s = sum( bn(k)*Gk(k)*np.sin(2*np.pi*frequency_quadra*k* t + dphi(k)) for k in ra
 
 
 t = t/period
-plt.plot(t,s,label=f"Serie di Fourier [n={terms}]")
+plt.plot(t,s,label=f"Simulazione [f={frequency_quadra}]")
 plt.xlabel("Tempo [T]")
 plt.ylabel("Ampiezza [u.a.]")
+plt.legend(loc = "lower left")
 
-
+#plt.savefig("/home/luca/Documents/universita/lab2/four_2022/esercizio_2/images/sim_8.png")
 # Plot the data
-#plt.plot(x, y)
+plt.plot(t, s)
 plt.show()
