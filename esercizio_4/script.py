@@ -29,7 +29,6 @@ t = np.linspace(0,T_signal*2, 1000, endpoint=False)
 
 s = sum( bn(k)*guadagno_A(k)*guadagno_B(k)*np.sin(2*np.pi*f_signal*k* t + phi_A(k) + phi_B(k) ) for k in range (1,terms+1))
 
-s = s
 
 plt.plot(t,s, label=f"f = {f_signal} Hz")
 plt.legend()
