@@ -1,7 +1,7 @@
 import numpy  as np
 import matplotlib.pyplot as plt
 
-f_signal = 23e3 # hz
+f_signal = 3e3 # hz
 T_signal = 1/f_signal # s
 f_ta = 212 # hz
 f_tb = 23590 # hz
