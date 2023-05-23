@@ -10,12 +10,13 @@ def plot_fft(time, signal, fft_output, frequencies_x, file_name):
     ax1.plot(time, signal)
     ax1.set_xlabel('Time [us]')
     ax1.set_ylabel('Signal [arb.un]')
+    ax2.set_xlim(0,15)
     ax2.plot(frequencies_x / 1e3, fft_output)
     ax2.set_yscale('log')
     ax2.set_ylabel('FFT [arb.un]')
     ax2.set_xlabel('Frequency [kHz]')
-    plt.savefig(f"./plots/{file_name}.png")
-    #plt.show()
+    #plt.savefig(f"./plots/{file_name}.png")
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     # remove the extension from the file name
     files_list = [file_name.split(".")[0] for file_name in files_list]
     # leave in files_list only the string that contains "fft"
-    files_list = [file_name for file_name in files_list if "fft" in file_name]
+    files_list = [file_name for file_name in files_list if "fft" in file_name or "nomed" in file_name]
 
     for file_name in files_list:
         time, signal = np.loadtxt(f'./rlc/{file_name}.txt', delimiter=' ', unpack=True)
@@ -51,10 +52,3 @@ if __name__ == "__main__":
         frequencies_x = np.linspace(0,f_max,len(fft_output))
 
         plot_fft(time, signal, fft_output, frequencies_x, file_name)
-
-
-
-
-
-
-
